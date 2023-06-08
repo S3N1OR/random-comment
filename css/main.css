@@ -1,18 +1,28 @@
-@import './fonts/fibre/stylesheet.css';
+@font-face {
+  font-weight: 700;
+  font-family: Fibre;
+  src: url("./fonts/fibre/Fibre.otf");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@700&display=swap');
 
 body{
   font-size: 2vmin;
-  font-family: 'comfortaa';
+  font-family: 'Comfortaa';
   background-image: url('../img/bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  user-select: none;
 }
 
 .container {
   max-width: 100vmin;
   margin: 0 auto;
   padding: 2vmin;
+  text-align: center;
 }
 
 .logo{
@@ -22,24 +32,66 @@ body{
   margin-bottom: 5vmin;
 }
 
+.title{
+  text-transform: uppercase;
+  font-size: 7vmin;
+  margin-bottom: 5vmin;
+  font-family: 'Fibre', sans-serif;
+}
+
 .input-group {
-  margin-bottom: 2vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 70vmin;
+  position: relative;
+  margin-bottom: 3vmin;
 }
 
 #video-url{
-  padding: 1vmin;
-  border-radius: 2vmin;
+  padding: 1vmin 6vmin;
+  border-radius: 1vmin;
   border: 0.1vmin solid #000;
   width: 100%;
+  height: 7vmin;
+  background-color: #fdfdfd;
+}
+
+.search__icon{
+  width: 4vmin;
+  position: absolute;
+  left: 1.3vmin;
+}
+
+.clear__icon{
+  width: 2.5vmin;
+  position: absolute;
+  right: 2vmin;
+  cursor: pointer;
+}
+
+.clear__icon:active{
+  transform: scale(0.9);
+  transition: all 0.2s ease;
 }
 
 .button {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-weight: 700;
+  font-size: 3vmin;
+  text-align: center;
   display: inline-block;
   padding: 1vmin 1vmin;
-  background-color: #4CAF50;
-  color: white;
+  background-color: #9d3535;
+  color: rgb(41, 40, 90);
   border: none;
   cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 50vmin;
+  width: 30vmin;
+  height: 5vmin;
+  letter-spacing: 1vmin;
 }
 
 .random-comment {
@@ -50,8 +102,6 @@ body{
 .avatar {
   width: 20vmin;
   height: 20vmin;
-  /* background-color: #000; */
   border-radius: 50vmin;
   object-fit: cover;
-  margin-right: 10px;
 }
