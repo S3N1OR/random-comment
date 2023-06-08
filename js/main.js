@@ -1,3 +1,6 @@
+// Переменная для хранения идентификаторов участвующих пользователей
+let participatingUsers = [];
+
 function getRandomComment() {
   const videoUrlInput = document.getElementById("video-url");
   const videoUrl = videoUrlInput.value;
@@ -11,12 +14,25 @@ function getRandomComment() {
   fetch(`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&maxResults=100&key=AIzaSyDqHnVhdAh0lMy0SR5rIMo785bWIMmohvk`)
     .then(response => response.json())
     .then(data => {
-      const commentThread = data.items[Math.floor(Math.random() * data.items.length)];
-      const comment = commentThread.snippet.topLevelComment.snippet.textDisplay;
-      const totalComments = data.pageInfo.totalResults;
-      const userName = commentThread.snippet.topLevelComment.snippet.authorDisplayName;
-      const avatarUrl = commentThread.snippet.topLevelComment.snippet.authorProfileImageUrl;
+      // Фильтруем комментарии, исключая участвующих пользователей
+      const filteredCommentThreads = data.items.filter(commentThread => !participatingUsers.includes(commentThread.snippet.topLevelComment.snippet.authorDisplayName));
 
+      if (filteredCommentThreads.length === 0) {
+        alert("Нет доступных комментариев для розыгрыша");
+        return;
+      }
+
+      // Выбираем случайный комментарий из отфильтрованного списка
+      const randomCommentThread = filteredCommentThreads[Math.floor(Math.random() * filteredCommentThreads.length)];
+      const comment = randomCommentThread.snippet.topLevelComment.snippet.textDisplay;
+      const totalComments = data.pageInfo.totalResults;
+      const userName = randomCommentThread.snippet.topLevelComment.snippet.authorDisplayName;
+      const avatarUrl = randomCommentThread.snippet.topLevelComment.snippet.authorProfileImageUrl;
+
+      // Добавляем идентификатор автора комментария в список участвующих пользователей
+      participatingUsers.push(userName);
+
+      // Отображаем комментарий и другую информацию
       const commentElement = document.createElement("div");
       commentElement.textContent = `Комментарий: ${comment}`;
 
