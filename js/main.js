@@ -1,6 +1,8 @@
 let participatingUsers = [];
 
 function getRandomComment() {
+  console.log(('123456789').replace(/^.{3}/, ''))
+
   const videoUrlInput = document.getElementById("video-url");
   const videoUrl = videoUrlInput.value;
   const videoId = getVideoId(videoUrl);
@@ -46,7 +48,8 @@ function getRandomComment() {
           totalCommentsElement.textContent = `Количество комментариев: ${totalComments}`;
 
           const avatarElement = document.createElement("img");
-          avatarElement.src = avatarUrl;
+          avatarElement.src = 'https://yt3.googleusercontent' + avatarUrl.replace(/^.{17}/, '');
+          // avatarElement.src = avatarUrl;
           avatarElement.alt = "Аватар комментатора";
           avatarElement.classList.add("avatar");
 
