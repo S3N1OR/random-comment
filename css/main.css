@@ -4,18 +4,23 @@
   src: url("./fonts/fibre/Fibre.otf");
 }
 
+@font-face {
+  font-weight: 700;
+  font-family: Bebas;
+  src: url('./fonts//bebas/ofont.ru_Bebas\ Neue.ttf');
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@700&display=swap');
-
-body{
+body {
   font-size: 2vmin;
-  font-family: 'Comfortaa';
+  font-family: 'Comfortaa', sans-serif;
   background-image: url('../img/bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   user-select: none;
+
 }
 
 .container {
@@ -25,14 +30,14 @@ body{
   text-align: center;
 }
 
-.logo{
+.logo {
   width: 50vmin;
   display: block;
   margin: 0 auto;
   margin-bottom: 5vmin;
 }
 
-.title{
+.title {
   text-transform: uppercase;
   font-size: 7vmin;
   margin-bottom: 5vmin;
@@ -44,44 +49,46 @@ body{
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  width: 70vmin;
+  width: 80vmin;
   position: relative;
   margin-bottom: 3vmin;
 }
 
-#video-url{
+#video-url {
   padding: 1vmin 6vmin;
-  border-radius: 1vmin;
+  border-radius: 2vmin;
   border: 0.1vmin solid #000;
   width: 100%;
-  height: 7vmin;
+  height: 8vmin;
   background-color: #fdfdfd;
 }
 
-.search__icon{
+.search__icon {
   width: 4vmin;
   position: absolute;
   left: 1.3vmin;
 }
 
-.clear__icon{
+.clear__icon {
   width: 2.5vmin;
   position: absolute;
   right: 2vmin;
   cursor: pointer;
 }
 
-.clear__icon:active{
+.clear__icon:active {
   transform: scale(0.9);
   transition: all 0.2s ease;
 }
 
 .button {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
   font-weight: 700;
-  font-size: 3vmin;
+  font-size: 5vmin;
+  display: flex;
+  align-items: center;
   text-align: center;
-  display: inline-block;
+  justify-content: center;
+  margin: 0 auto;
   padding: 1vmin 1vmin;
   background-color: #9d3535;
   color: rgb(41, 40, 90);
@@ -89,9 +96,17 @@ body{
   cursor: pointer;
   text-transform: uppercase;
   border-radius: 50vmin;
-  width: 30vmin;
-  height: 5vmin;
-  letter-spacing: 1vmin;
+  width: 25vmin;
+  height: 7vmin;
+  letter-spacing: 0.5vmin;
+  border: 0.5vmin solid rgb(41, 40, 90);
+  font-family: 'Bebas', sans-serif;
+  position: relative;
+  box-shadow: 0 0.5vmin 0 0vmin #9d3535;
+}
+
+.button:active{
+  transform: scale(0.95);
 }
 
 .random-comment {
@@ -105,3 +120,5 @@ body{
   border-radius: 50vmin;
   object-fit: cover;
 }
+
+.name {}
