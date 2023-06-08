@@ -24,35 +24,45 @@ function getRandomComment() {
       const comment = randomCommentThread.snippet.topLevelComment.snippet.textDisplay;
       const totalComments = data.pageInfo.totalResults;
       const userName = randomCommentThread.snippet.topLevelComment.snippet.authorDisplayName;
-      const avatarUrl = randomCommentThread.snippet.topLevelComment.snippet.authorProfileImageUrl;
+      const channelId = randomCommentThread.snippet.topLevelComment.snippet.authorChannelId.value;
 
       participatingUsers.push(userName);
 
-      const commentElement = document.createElement("div");
-      commentElement.classList.add('comment');
-      commentElement.textContent = `Комментарий: ${comment}`;
+      fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=AIzaSyDqHnVhdAh0lMy0SR5rIMo785bWIMmohvk`)
+        .then(response => response.json())
+        .then(channelData => {
+          const avatarUrl = channelData.items[0].snippet.thumbnails.default.url;
 
-      const userNameElement = document.createElement("div");
-      userNameElement.classList.add('name');
-      userNameElement.textContent = `Имя пользователя: ${userName}`;
+          const commentElement = document.createElement("div");
+          commentElement.classList.add('comment');
+          commentElement.textContent = `Комментарий: ${comment}`;
 
-      const totalCommentsElement = document.createElement("div");
-      totalCommentsElement.classList.add('totalComments');
-      totalCommentsElement.textContent = `Количество комментариев: ${totalComments}`;
+          const userNameElement = document.createElement("div");
+          userNameElement.classList.add('name');
+          userNameElement.textContent = `Имя пользователя: ${userName}`;
 
-      const avatarElement = document.createElement("img");
-      avatarElement.src = avatarUrl;
-      avatarElement.alt = "Аватар комментатора";
-      avatarElement.classList.add("avatar");
+          const totalCommentsElement = document.createElement("div");
+          totalCommentsElement.classList.add('totalComments');
+          totalCommentsElement.textContent = `Количество комментариев: ${totalComments}`;
 
-      const userInfoElement = document.createElement("div");
-      userInfoElement.appendChild(avatarElement);
-      userInfoElement.appendChild(userNameElement);
+          const avatarElement = document.createElement("img");
+          avatarElement.src = avatarUrl;
+          avatarElement.alt = "Аватар комментатора";
+          avatarElement.classList.add("avatar");
 
-      document.getElementById("random-comment").innerHTML = "";
-      document.getElementById("random-comment").appendChild(userInfoElement);
-      document.getElementById("random-comment").appendChild(commentElement);
-      document.getElementById("random-comment").appendChild(totalCommentsElement);
+          const userInfoElement = document.createElement("div");
+          userInfoElement.appendChild(avatarElement);
+          userInfoElement.appendChild(userNameElement);
+
+          document.getElementById("random-comment").innerHTML = "";
+          document.getElementById("random-comment").appendChild(userInfoElement);
+          document.getElementById("random-comment").appendChild(commentElement);
+          document.getElementById("random-comment").appendChild(totalCommentsElement);
+        })
+        .catch(error => {
+          console.error("Произошла ошибка:", error);
+          alert("Произошла ошибка при получении информации о канале комментатора");
+        });
     })
     .catch(error => {
       console.error("Произошла ошибка:", error);
