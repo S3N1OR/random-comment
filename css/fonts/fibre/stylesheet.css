@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Fibre Vintage';
+    src: url('FibreVintage.eot');
+    src: local('Fibre Vintage'), local('FibreVintage'),
+        url('FibreVintage.eot?#iefix') format('embedded-opentype'),
+        url('FibreVintage.woff2') format('woff2'),
+        url('FibreVintage.woff') format('woff'),
+        url('FibreVintage.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+

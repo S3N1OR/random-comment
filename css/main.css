@@ -1,0 +1,56 @@
+@import './fonts/fibre/stylesheet.css';
+
+body{
+  font-size: 2vmin;
+  font-family: 'comfortaa';
+  background-image: url('../img/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  max-width: 100vmin;
+  margin: 0 auto;
+  padding: 2vmin;
+}
+
+.logo{
+  width: 50vmin;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 5vmin;
+}
+
+.input-group {
+  margin-bottom: 2vmin;
+}
+
+#video-url{
+  padding: 1vmin;
+  border-radius: 2vmin;
+  border: 0.1vmin solid #000;
+  width: 100%;
+}
+
+.button {
+  display: inline-block;
+  padding: 1vmin 1vmin;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.random-comment {
+  margin-top: 2vmin;
+  font-weight: bold;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  /* border-radius: 50%; */
+  object-fit: cover;
+  margin-right: 10px;
+}

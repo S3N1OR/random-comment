@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Выбор случайного комментария на YouTube</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/reset.css">
+</head>
+
+<body>
+  <div class="container">
+    <img src="./img/deesloy-logo.png" alt="" class="logo">
+    <h2>Выбор случайного комментария на YouTube</h2>
+    <div class="input-group">
+      <label for="video-url">URL видеоролика на YouTube:</label>
+      <input value="https://www.youtube.com/watch?v=ZLxLMrLtObA&ab_channel=deesloy" type="text" id="video-url" placeholder="Введите URL видеоролика">
+    </div>
+    <button class="button" onclick="getRandomComment()">Выбрать случайный комментарий</button>
+    <div id="random-comment" class="random-comment"></div>
+  </div>
+
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
+
+<!-- AIzaSyDqHnVhdAh0lMy0SR5rIMo785bWIMmohvk -->
