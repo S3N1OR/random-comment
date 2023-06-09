@@ -37,28 +37,60 @@ function getRandomComment() {
 
           const commentElement = document.createElement("div");
           commentElement.classList.add('comment');
-          commentElement.textContent = `Комментарий: ${comment}`;
+          commentElement.textContent = 'Комментарий: ';
+          const commentSpan = document.createElement('span');
+          commentSpan.innerHTML = comment;
+          commentElement.appendChild(commentSpan);
 
           const userNameElement = document.createElement("div");
           userNameElement.classList.add('name');
-          userNameElement.textContent = `Имя пользователя: ${userName}`;
+          userNameElement.innerHTML = 'NickName: ';
+          const userNameSpan = document.createElement('span');
+          userNameSpan.innerHTML = userName;
+          userNameElement.appendChild(userNameSpan);
 
           const totalCommentsElement = document.createElement("div");
-          totalCommentsElement.classList.add('totalComments');
-          totalCommentsElement.textContent = `Количество комментариев: ${totalComments}`;
+          totalCommentsElement.classList.add('total__comments');
+          totalCommentsElement.textContent = 'Количество комментариев: ';
+          const totalCommentsSpan = document.createElement('span');
+          totalCommentsSpan.innerHTML = totalComments;
+          totalCommentsElement.appendChild(totalCommentsSpan);
 
           const avatarElement = document.createElement("img");
           avatarElement.src = 'https://yt3.googleusercontent' + avatarUrl.replace(/^.{17}/, '');
-          // avatarElement.src = avatarUrl;
           avatarElement.alt = "Аватар комментатора";
           avatarElement.classList.add("avatar");
+          const avatarIcon = document.createElement('img');
+          avatarIcon.src = './img/win-icon.png';
+          avatarIcon.classList.add('win__icon');
 
-          const userInfoElement = document.createElement("div");
-          userInfoElement.appendChild(avatarElement);
-          userInfoElement.appendChild(userNameElement);
+          const winContent = document.getElementById('win');
+          const winBlock = document.createElement('win');
+          const winTitle = document.createElement('h4');
+          winBlock.classList.add('win__block');
+          winTitle.classList.add('win__title');
+          winTitle.innerHTML = 'Победитель'
+          winContent.innerHTML = '';
+          winContent.appendChild(winTitle);
+          winContent.appendChild(winBlock);
+          winBlock.appendChild(avatarElement);
+          winBlock.appendChild(avatarIcon);
+
+          const redDots = document.createElement('div');
+          redDots.classList.add('dots');
+          redDots.classList.add('red');
+          const orangeDots = document.createElement('div');
+          orangeDots.classList.add('dots');
+          orangeDots.classList.add('orange');
+          const greenDots = document.createElement('div');
+          greenDots.classList.add('dots');
+          greenDots.classList.add('green');
 
           document.getElementById("random-comment").innerHTML = "";
-          document.getElementById("random-comment").appendChild(userInfoElement);
+          document.getElementById("random-comment").appendChild(redDots);
+          document.getElementById("random-comment").appendChild(orangeDots);
+          document.getElementById("random-comment").appendChild(greenDots);
+          document.getElementById("random-comment").appendChild(userNameElement);
           document.getElementById("random-comment").appendChild(commentElement);
           document.getElementById("random-comment").appendChild(totalCommentsElement);
         })
@@ -71,6 +103,8 @@ function getRandomComment() {
       console.error("Произошла ошибка:", error);
       alert("Произошла ошибка при получении комментариев");
     });
+
+    document.querySelector('.random-comment').classList.remove('none');
 }
 
 function getVideoId(url) {
