@@ -126,3 +126,9 @@ function clearUrl() {
   const videoUrlInput = document.getElementById("video-url");
   videoUrlInput.value = '';
 }
+
+function copy() {
+  var copyText = 'https://github.com/S3N1OR/random-comment';
+
+  navigator.clipboard.writeText(copyText);
+}

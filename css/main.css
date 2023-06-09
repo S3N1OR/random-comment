@@ -21,6 +21,34 @@ body {
   background-position: center;
 }
 
+.source {
+  position: absolute;
+  top: -2vmin;
+  left: 1vmin;
+  font-size: 1.5vmin;
+  display: flex;
+  width: 30vmin;
+  height: 10vmin;
+  align-items: center;
+  line-height: 1;
+  opacity: 0.75;
+}
+
+.source a {
+  color: #ff0000;
+  font-weight: 700;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.copy {
+  background-color: #2e2e2e51;
+  padding: 1vmin;
+  border-radius: 2vmin;
+  display: block;
+  margin-left: 2vmin;
+}
+
 .container {
   max-width: 200vmin;
   margin: 0 auto;
@@ -112,7 +140,7 @@ body {
   transform: scale(0.95);
 }
 
-.none{
+.none {
   display: none;
 }
 
@@ -165,26 +193,30 @@ body {
   overflow: hidden;
 }
 
-.spin1{
+.spin1 {
   animation: spin1 1s infinite;
   filter: blur(10px);
   user-select: none;
 }
 
-@keyframes spin1{
-  0%{
+@keyframes spin1 {
+  0% {
     right: 30vmin;
   }
-  25%{
+
+  25% {
     right: 100vmin;
   }
-  50%{
+
+  50% {
     right: 30vmin;
   }
-  75%{
+
+  75% {
     right: 100vmin;
   }
-  100%{
+
+  100% {
     right: 30vmin;
   }
 }
@@ -196,30 +228,34 @@ body {
   bottom: 6vmin;
 }
 
-.spin2{
+.spin2 {
   animation: spin2 1s infinite;
   filter: blur(10px);
 }
 
-@keyframes spin2{
-  0%{
+@keyframes spin2 {
+  0% {
     left: 50vmin;
   }
-  25%{
+
+  25% {
     left: 120vmin;
   }
-  50%{
+
+  50% {
     left: 50vmin;
   }
-  75%{
+
+  75% {
     left: 120vmin;
   }
-  100%{
+
+  100% {
     left: 50vmin;
   }
 }
 
-.win__block{
+.win__block {
   display: block;
   width: 20vmin;
   height: 20vmin;
@@ -242,7 +278,7 @@ body {
   border-radius: 50vmin;
 }
 
-.win__icon{
+.win__icon {
   width: 17vmin;
   height: 17vmin;
   display: none;
@@ -263,18 +299,18 @@ body {
   user-select: none;
 }
 
-.name span{
+.name span {
   color: #9d3535;
   font-family: 'Fibre', sans-serif;
   user-select: all;
 }
 
-.comment span{
+.comment span {
   color: #9d3535;
   font-family: 'Fibre', sans-serif;
 }
 
-.total__comments span{
+.total__comments span {
   color: #9d3535;
   font-family: 'Fibre', sans-serif;
 }
