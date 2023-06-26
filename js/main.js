@@ -50,6 +50,9 @@ function getRandomComment() {
             const userNameSpan = document.createElement('span');
             userNameSpan.innerHTML = userName;
             userNameElement.appendChild(userNameSpan);
+            const copyName = document.createElement('div');
+            copyName.classList.add('copy__name');
+            userNameElement.appendChild(copyName);
 
             const totalCommentsElement = document.createElement("div");
             totalCommentsElement.classList.add('total__comments');
@@ -77,6 +80,12 @@ function getRandomComment() {
             winContent.appendChild(winBlock);
             winBlock.appendChild(avatarElement);
             winBlock.appendChild(avatarIcon);
+
+            copyName.addEventListener('click', function () {
+              var copyNameText = '@' + userName;
+
+              navigator.clipboard.writeText(copyNameText);
+            })
 
             const redDots = document.createElement('div');
             redDots.classList.add('dots');
@@ -114,6 +123,7 @@ function getRandomComment() {
       document.getElementById('win').classList.remove('spin2');
     }, 2000)
   }, 100)
+
 }
 
 function getVideoId(url) {
