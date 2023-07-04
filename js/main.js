@@ -2,9 +2,6 @@ let participatingUsers = [];
 
 function getRandomComment() {
   setTimeout(function () {
-
-    console.log(('123456789').replace(/^.{3}/, ''))
-
     const videoUrlInput = document.getElementById("video-url");
     const videoUrl = videoUrlInput.value;
     const videoId = getVideoId(videoUrl);
@@ -17,6 +14,11 @@ function getRandomComment() {
     fetch(`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&maxResults=100&key=AIzaSyDqHnVhdAh0lMy0SR5rIMo785bWIMmohvk`)
       .then(response => response.json())
       .then(data => {
+        if (!data.items || data.items.length === 0) {
+          alert("Нет доступных комментариев для розыгрыша");
+          return;
+        }
+
         const filteredCommentThreads = data.items.filter(commentThread => !participatingUsers.includes(commentThread.snippet.topLevelComment.snippet.authorDisplayName));
 
         if (filteredCommentThreads.length === 0) {
@@ -56,10 +58,16 @@ function getRandomComment() {
 
             const totalCommentsElement = document.createElement("div");
             totalCommentsElement.classList.add('total__comments');
-            totalCommentsElement.textContent = 'Количество комментариев: ';
+            totalCommentsElement.textContent = 'Всего комментариев под видео: ';
             const totalCommentsSpan = document.createElement('span');
             totalCommentsSpan.innerHTML = totalComments;
             totalCommentsElement.appendChild(totalCommentsSpan);
+
+            const winnerCommentsElement = document.createElement('div');
+            winnerCommentsElement.classList.add('winner__comments');
+            winnerCommentsElement.textContent = 'Количество комментариев от победителя: ';
+            const winnerCommentsSpan = document.createElement('span');
+            winnerCommentsElement.appendChild(winnerCommentsSpan);
 
             const avatarElement = document.createElement("img");
             avatarElement.src = 'https://yt3.googleusercontent' + avatarUrl.replace(/^.{17}/, '');
@@ -82,7 +90,7 @@ function getRandomComment() {
             winBlock.appendChild(avatarIcon);
 
             copyName.addEventListener('click', function () {
-              var copyNameText = '@' + userName;
+              var copyNameText = userName;
 
               navigator.clipboard.writeText(copyNameText);
             })
@@ -97,6 +105,9 @@ function getRandomComment() {
             greenDots.classList.add('dots');
             greenDots.classList.add('green');
 
+            const randomCommentTop = document.createElement('div');
+            randomCommentTop.classList.add('random-comment-top');
+
             document.getElementById("random-comment").innerHTML = "";
             document.getElementById("random-comment").appendChild(redDots);
             document.getElementById("random-comment").appendChild(orangeDots);
@@ -104,6 +115,20 @@ function getRandomComment() {
             document.getElementById("random-comment").appendChild(userNameElement);
             document.getElementById("random-comment").appendChild(commentElement);
             document.getElementById("random-comment").appendChild(totalCommentsElement);
+            document.getElementById("random-comment").appendChild(winnerCommentsElement);
+
+            fetch(`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&maxResults=100&key=AIzaSyDqHnVhdAh0lMy0SR5rIMo785bWIMmohvk&authorChannelId=${channelId}`)
+              .then(response => response.json())
+              .then(data => {
+                const commentThreads = data.items;
+                const winnerCommentsCount = commentThreads.filter(commentThread => commentThread.snippet.topLevelComment.snippet.authorChannelId.value === channelId).length;
+
+                winnerCommentsSpan.textContent = winnerCommentsCount;
+              })
+              .catch(error => {
+                console.error("Произошла ошибка:", error);
+                alert("Произошла ошибка при получении количества комментариев от победителя");
+              });
           })
           .catch(error => {
             console.error("Произошла ошибка:", error);
