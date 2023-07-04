@@ -163,7 +163,7 @@ function clearUrl() {
 }
 
 function copy() {
-  var copyText = 'https://github.com/S3N1OR/random-comment';
+  var copyText = 'https://github.com/S3N1OR/random-comment/tree/master';
 
   navigator.clipboard.writeText(copyText);
 }
