@@ -322,7 +322,7 @@ body {
   margin-bottom: 5vmin;
 }
 
-.copy__name{
+.copy__name {
   width: 2.4vmin;
   height: 3vmin;
   border-radius: 0.5vmin;
@@ -334,7 +334,11 @@ body {
   background-repeat: no-repeat;
 }
 
-.winner__comments span{
+.winner__comments{
+  user-select: none;
+}
+
+.winner__comments span {
   color: #9d3535;
   font-family: 'Fibre', sans-serif;
 }
