@@ -150,12 +150,13 @@ body {
   background-color: #dddddd;
   border-radius: 1.5vmin;
   padding: 6vmin 2.5vmin 2.5vmin 2vmin;
-  height: 35vmin;
+  min-height: 35vmin;
   width: 60vmin;
   border: 0.5vmin solid #2f2f2f;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .random-comment::after {
@@ -322,11 +323,20 @@ body {
   margin-bottom: 5vmin;
 }
 
+.channel__link{
+  margin-left: 2vmin;
+  width: 3vmin;
+  background-image: url('../img/channel-link.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: translateY(-0.3vmin);
+}
+
 .copy__name {
   width: 2.4vmin;
   height: 3vmin;
   border-radius: 0.5vmin;
-  margin-left: 1vmin;
+  margin-left: 2vmin;
   cursor: pointer;
   transform: translateY(-0.2vmin);
   background-image: url('../img/copy-icon.svg');
@@ -334,7 +344,7 @@ body {
   background-repeat: no-repeat;
 }
 
-.winner__comments{
+.winner__comments {
   user-select: none;
 }
 

@@ -43,7 +43,7 @@ function getRandomComment() {
             commentElement.classList.add('comment');
             commentElement.textContent = 'Комментарий: ';
             const commentSpan = document.createElement('span');
-            commentSpan.innerHTML = comment;
+            commentSpan.innerHTML = comment.substring(0, 100);
             commentElement.appendChild(commentSpan);
 
             const userNameElement = document.createElement("div");
@@ -107,6 +107,12 @@ function getRandomComment() {
 
             const randomCommentTop = document.createElement('div');
             randomCommentTop.classList.add('random-comment-top');
+
+            const channelLink = document.createElement('a');
+            channelLink.classList.add('channel__link');
+            channelLink.href = 'https://www.youtube.com/channel/' + channelId;
+            channelLink.target = '_blank';
+            userNameElement.appendChild(channelLink);
 
             document.getElementById("random-comment").innerHTML = "";
             document.getElementById("random-comment").appendChild(redDots);
