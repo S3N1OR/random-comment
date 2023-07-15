@@ -222,7 +222,6 @@ body {
 }
 
 #win {
-  user-select: none;
   position: absolute;
   left: 50vmin;
   bottom: 6vmin;
@@ -285,24 +284,19 @@ body {
 }
 
 .name {
-  user-select: none;
   display: flex;
   justify-content: center;
 }
 
 .comment {
-  user-select: none;
   position: relative;
 }
 
-.total__comments {
-  user-select: none;
-}
+.total__comments {}
 
 .name span {
   color: #9d3535;
   font-family: 'Fibre', sans-serif;
-  user-select: all;
   margin-left: 1vmin;
 }
 
@@ -321,9 +315,10 @@ body {
   font-size: 10vmin;
   text-transform: uppercase;
   margin-bottom: 5vmin;
+  user-select: none;
 }
 
-.channel__link{
+.channel__link {
   margin-left: 2vmin;
   width: 3vmin;
   background-image: url('../img/channel-link.svg');
@@ -344,9 +339,7 @@ body {
   background-repeat: no-repeat;
 }
 
-.winner__comments {
-  user-select: none;
-}
+.winner__comments { }
 
 .winner__comments span {
   color: #9d3535;
