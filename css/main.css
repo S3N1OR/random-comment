@@ -7,15 +7,15 @@
 @font-face {
   font-weight: 700;
   font-family: Bebas;
-  src: url('./fonts//bebas/ofont.ru_Bebas\ Neue.ttf');
+  src: url("./fonts//bebas/ofont.ru_Bebas\ Neue.ttf");
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
 
 body {
   font-size: 2vmin;
-  font-family: 'Comfortaa', sans-serif;
-  background-image: url('../img/bg.jpg');
+  font-family: "Comfortaa", sans-serif;
+  background-image: url("../img/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -69,8 +69,37 @@ body {
   text-transform: uppercase;
   font-size: 7vmin;
   margin-bottom: 5vmin;
-  font-family: 'Fibre', sans-serif;
+  font-family: "Fibre", sans-serif;
   user-select: none;
+}
+
+.com2b{
+  position: absolute;
+  left: 5vmin;
+  top: 10vmin;
+  background-color: #00000050;
+  padding: 1vmin;
+  border-radius: 1vmin;
+  border: 0.1vmin solid #000;
+  font-family: 'Comfortaa', sans-serif;
+  color: #141414;
+  width: 30vmin;
+}
+
+.com2b-list{
+  display: flex;
+  flex-direction: column;
+  gap: 1vmin;
+}
+
+.com2b-title{
+  border-bottom: 0.1vmin solid #000000;
+  padding-bottom: 0.5vmin;
+  margin-bottom: 0.5vmin;
+}
+
+.newCom2b{
+  width: 1vmin;
 }
 
 .input-group {
@@ -130,7 +159,7 @@ body {
   height: 7vmin;
   letter-spacing: 0.5vmin;
   border: 0.5vmin solid rgb(41, 40, 90);
-  font-family: 'Bebas', sans-serif;
+  font-family: "Bebas", sans-serif;
   position: relative;
   box-shadow: 0 0.5vmin 0 0vmin #9d3535;
   margin-bottom: 6vmin;
@@ -160,7 +189,7 @@ body {
 }
 
 .random-comment::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -259,7 +288,7 @@ body {
   width: 20vmin;
   height: 20vmin;
   margin: 0 auto;
-  background-image: url('../img/win-icon.png');
+  background-image: url("../img/win-icon.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -292,26 +321,27 @@ body {
   position: relative;
 }
 
-.total__comments {}
+.total__comments {
+}
 
 .name span {
   color: #9d3535;
-  font-family: 'Fibre', sans-serif;
+  font-family: "Fibre", sans-serif;
   margin-left: 1vmin;
 }
 
 .comment span {
   color: #9d3535;
-  font-family: 'Fibre', sans-serif;
+  font-family: "Fibre", sans-serif;
 }
 
 .total__comments span {
   color: #9d3535;
-  font-family: 'Fibre', sans-serif;
+  font-family: "Fibre", sans-serif;
 }
 
 .win__title {
-  font-family: 'Fibre', sans-serif;
+  font-family: "Fibre", sans-serif;
   font-size: 10vmin;
   text-transform: uppercase;
   margin-bottom: 5vmin;
@@ -321,7 +351,7 @@ body {
 .channel__link {
   margin-left: 2vmin;
   width: 3vmin;
-  background-image: url('../img/channel-link.svg');
+  background-image: url("../img/channel-link.svg");
   background-size: cover;
   background-repeat: no-repeat;
   transform: translateY(-0.3vmin);
@@ -334,16 +364,17 @@ body {
   margin-left: 2vmin;
   cursor: pointer;
   transform: translateY(-0.2vmin);
-  background-image: url('../img/copy-icon.svg');
+  background-image: url("../img/copy-icon.svg");
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
-.winner__comments { }
+.winner__comments {
+}
 
 .winner__comments span {
   color: #9d3535;
-  font-family: 'Fibre', sans-serif;
+  font-family: "Fibre", sans-serif;
 }
 
 .none {
