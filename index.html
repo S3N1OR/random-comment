@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<title>deesloy || Случайный комментарий</title>
+		<link rel="stylesheet" href="./css/main.css" />
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="shortcut icon" href="./img/deesloy.jpg" type="image/x-icon" />
+	</head>
 
-<head>
-  <title>deesloy || Случайный комментарий</title>
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="./css/reset.css">
-  <link rel="shortcut icon" href="./img/deesloy.jpg" type="image/x-icon">
-</head>
+	<body>
+		<div class="container">
+			<div class="com2b">
+				<h2 class="com2b-title">Пользователи, написавшие более одного комментария</h2>
+				<div class="com2b-list">
+				</div>
+			</div>
+			<img src="./img/deesloy-logo.png" alt="" class="logo" />
+			<h2 class="title">Случайный комментарий</h2>
+			<div class="input-group">
+				<img src="./img/search-icon.svg" alt="" class="search__icon" />
+				<input
+					type="text"
+					id="video-url"
+					placeholder="Введите URL видеоролика"
+					value="https://www.youtube.com/watch?v=odXfz8NRhrU&ab_channel=deesloy"
+				/>
+				<img
+					src="./img/clear-icon.svg"
+					alt=""
+					class="clear__icon"
+					onclick="clearUrl()"
+				/>
+			</div>
+			<button class="button" onclick="getRandomComment()">Start</button>
+			<div id="win"></div>
+			<div id="random-comment" class="random-comment none"></div>
+			<div class="source">
+				<spandata.pageInfo.totalResults
+					>Исхoдный код
+					<a
+						href="https://github.com/S3N1OR/random-comment/tree/master"
+						target="_blank"
+						>тут</a
+					></span
+				>
+				<button class="copy" onclick="copy()">copy</button>
+			</div>
+		</div>
+		
+		
 
-<body>
-  <div class="container">
-    <img src="./img/deesloy-logo.png" alt="" class="logo">
-    <h2 class="title">Случайный комментарий</h2>
-    <div class="input-group">
-      <img src="./img/search-icon.svg" alt="" class="search__icon">
-      <input type="text" id="video-url" placeholder="Введите URL видеоролика">
-      <img src="./img/clear-icon.svg" alt="" class="clear__icon" onclick="clearUrl()">
-    </div>
-    <button class="button" onclick="getRandomComment()">Start</button>
-    <div id="win">
-    </div>
-    <div id="random-comment" class="random-comment none">
-    </div>
-    <div class="source">
-      <span>Исхoдный код <a href="https://github.com/S3N1OR/random-comment/tree/master" target="_blank">тут</a></span>
-      <button class="copy" onclick="copy()">copy</button>
-    </div>
-  </div>
-
-  <script src="./js/main.js"></script>
-</body>
-
+		<script src="./js/main.js"></script>
+	</body>
 </html>
