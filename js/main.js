@@ -1,7 +1,5 @@
 let participatingUsers = [];
 
-let api_key = 'AIzaSyDqHnVhdAh0lMy0SR5rIMo785bWIMmohvk';
-
 function getRandomComment() {
   setTimeout(function () {
     const videoUrlInput = document.getElementById("video-url");
