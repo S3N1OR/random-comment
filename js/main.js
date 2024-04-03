@@ -42,7 +42,8 @@ function getRandomComment() {
         const comment =
           randomCommentThread.snippet.topLevelComment.snippet.textDisplay;
 
-        const totalComments = data.pageInfo.resultsPerPage;
+        const totalComments = data.pageInfo.totalResults;
+        
         const userName =
           randomCommentThread.snippet.topLevelComment.snippet.authorDisplayName;
         const channelId =
