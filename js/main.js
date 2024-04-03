@@ -12,7 +12,7 @@ function getRandomComment() {
     }
 
     fetch(
-      `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&key=AIzaSyDqHnVhdAh0lMy0SR5rIMo785bWIMmohvk`
+      `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&maxResults=100&key=AIzaSyDqHnVhdAh0lMy0SR5rIMo785bWIMmohvk`
     )
       
 
@@ -22,6 +22,12 @@ function getRandomComment() {
           alert("Нет доступных комментариев для розыгрыша");
           return;
         }
+
+        console.log("Все комментарии из под видео:");
+        data.items.forEach((commentThread) => {
+          const comment = commentThread.snippet.topLevelComment.snippet.textDisplay;
+          console.log(comment);
+        });
 
         const filteredCommentThreads = data.items.filter(
           (commentThread) =>
@@ -42,8 +48,9 @@ function getRandomComment() {
         const comment =
           randomCommentThread.snippet.topLevelComment.snippet.textDisplay;
 
-        const totalComments = data.pageInfo.totalResults;
-        
+        const totalComments = data.items.length;
+        console.log("Общее количество комментариев под видео:", data.items.length);
+
         const userName =
           randomCommentThread.snippet.topLevelComment.snippet.authorDisplayName;
         const channelId =
@@ -155,7 +162,7 @@ function getRandomComment() {
               .appendChild(winnerCommentsElement);
 
             fetch(
-              `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&maxResults=100&key=AIzaSyDqHnVhdAh0lMy0SR5rIMo785bWIMmohvk&authorChannelId=${channelId}`
+              `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&maxResults=10&key=AIzaSyDqHnVhdAh0lMy0SR5rIMo785bWIMmohvk&authorChannelId=${channelId}`
             )
               .then((response) => response.json())
               .then((data) => {
@@ -183,7 +190,7 @@ function getRandomComment() {
           });
 
           fetch(
-            `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&maxResults=100&key=AIzaSyDqHnVhdAh0lMy0SR5rIMo785bWIMmohvk`
+            `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&maxResults=10&key=AIzaSyDqHnVhdAh0lMy0SR5rIMo785bWIMmohvk`
           )
             .then((response) => response.json())
             .then((data) => {
